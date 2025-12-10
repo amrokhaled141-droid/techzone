@@ -1,0 +1,658 @@
+/* إعادة تعيين الهوامش والحشوات الافتراضية لجميع العناصر */
+* {
+    margin: 0;                    /* إزالة الهوامش الخارجية */
+    padding: 0;                   /* إزالة الحشوات الداخلية */
+    box-sizing: border-box;       /* جعل الحشوات والحدود محسوبة ضمن الأبعاد */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* تحديد الخط الافتراضي */
+}
+
+/* تعريف متغيرات الألوان لاستخدامها في جميع أنحاء الموقع */
+:root {
+    --primary: #2563eb;        /* اللون الأساسي (أزرق) */
+    --secondary: #1e40af;      /* اللون الثانوي (أزرق غامق) */
+    --accent: #f59e0b;         /* لون التمييز (برتقالي) */
+    --dark: #1f2937;           /* اللون الداكن للنصوص */
+    --light: #f8fafc;          /* اللون الفاتح للخلفيات */
+    --gray: #6b7280;           /* اللون الرمادي */
+}
+
+/* تنسيقات الجسم الرئيسي للصفحة */
+body {
+    background-color: #f5f7fa;   /* لون خلفية الصفحة */
+    color: var(--dark);          /* لون النص الأساسي varدالة للتنظيم والتوحيد */
+    line-height: 1.6;           /* ارتفاع السطر لتحسين readability */
+}
+
+/* تنسيق رأس الصفحة (الهيدر) */
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); /* خلفية متدرجة */
+    color: white;               /* لون النص أبيض */
+    padding: 1rem;              /* حشوة داخلية */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+}
+
+/* محتوى الهيدر */
+.header-content {
+    max-width: 1200px;         /* أقصى عرض للمحتوى */
+    margin: 0 auto;            /* توسيط المحتوى */
+    display: flex;             /* استخدام flexbox للترتيب الأفقي */
+    justify-content: space-between; /* توزيع المساحة بين العناصر */
+    align-items: center;       /* توسيط العناصر عمودياً */
+    flex-wrap: wrap;           /* السماح بلف العناصر عند الضرورة */
+}
+
+/* تنسيق الشعار */
+.logo {
+    font-size: 1.8rem;         /* حجم الخط كبير */
+    font-weight: bold;         /* خط عريض */
+    display: flex;             /* استخدام flexbox */
+    align-items: center;       /* توسيط المحتوى عمودياً */
+}
+
+.logo span {
+    color: var(--accent);      /* لون مختلف لجزء من الشعار */
+}
+
+/* تنسيق قائمة التنقل */
+nav ul {
+    list-style: none;          /* إزالة النقاط من القائمة */
+    display: flex;             /* عرض القائمة أفقياً */
+    flex-wrap: wrap;           /* السماح بلف العناصر */
+}
+
+nav li {
+    margin: 0 10px;            /* مسافة بين عناصر القائمة */
+}
+
+nav a {
+    color: white;              /* لون النص أبيض */
+    text-decoration: none;     /* إزالة الخط من تحت الروابط */
+    padding: 8px 15px;         /* حشوة داخلية للروابط */
+    border-radius: 4px;        /* زوايا دائرية */
+    transition: background-color 0.3s; /* تأثير انتقالي عند التمرير */
+    font-weight: 500;          /* سماكة متوسطة للخط */
+}
+
+/* تأثيرات التمرير على روابط التنقل */
+nav a:hover, nav a.active {
+    background-color: rgba(255, 255, 255, 0.2); /* خلفية شبه شفافة */
+}
+
+/* قسم البطل (Hero Section) */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* خلفية مع تدرج شفاف */
+    background-size: cover;    /* تغطية كاملة للمساحة */
+    background-position: center; /* توسيط الصورة */
+    color: white;              /* لون النص أبيض */
+    padding: 4rem 1rem;        /* حشوة كبيرة */
+    text-align: center;        /* توسيط النص */
+}
+
+.hero-content {
+    max-width: 800px;          /* أقصى عرض للمحتوى */
+    margin: 0 auto;            /* توسيط المحتوى */
+}
+
+.hero h1 {
+    font-size: 2.5rem;         /* حجم خط كبير للعنوان */
+    margin-bottom: 1rem;       /* مسافة أسفل العنوان */
+}
+
+.hero p {
+    font-size: 1.2rem;         /* حجم خط متوسط للفقرة */
+    margin-bottom: 2rem;       /* مسافة أسفل الفقرة */
+}
+
+/* تنسيق الأزرار العامة */
+.btn {
+    display: inline-block;     /* عرض ككتلة مضمنة */
+    background-color: var(--accent); /* لون خلفية برتقالي */
+    color: white;              /* لون النص أبيض */
+    padding: 12px 25px;        /* حشوة داخلية */
+    border-radius: 30px;       /* زوايا دائرية جداً */
+    text-decoration: none;     /* إزالة الخط من تحت النص */
+    font-weight: bold;         /* خط عريض */
+    transition: all 0.3s;      /* تأثير انتقالي لجميع الخصائص */
+    border: none;              /* إزالة الحدود */
+    cursor: pointer;           /* تغيير شكل المؤشر إلى يد */
+}
+
+.btn:hover {
+    background-color: #e69008; /* لون أغمق عند التمرير */
+    transform: translateY(-3px); /* تحريك الزر لأعلى */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+}
+
+/* الحاوية الرئيسية للمحتوى */
+.container {
+    max-width: 1200px;         /* أقصى عرض */
+    margin: 0 auto;            /* توسيط المحتوى */
+    padding: 20px;             /* حشوة داخلية */
+}
+
+/* تنسيق عناوين الأقسام */
+.section-title {
+    text-align: center;        /* توسيط النص */
+    margin: 2rem 0;            /* مسافة فوق وتحت */
+    color: var(--dark);        /* لون النص غامق */
+    position: relative;        /* تحديد الوضع النسبي */
+}
+
+.section-title:after {
+    content: '';               /* محتوى فارغ */
+    display: block;            /* عرض ككتلة */
+    width: 80px;               /* عرض الخط */
+    height: 4px;               /* ارتفاع الخط */
+    background: var(--primary); /* لون الخط أزرق */
+    margin: 10px auto;         /* توسيط الخط */
+    border-radius: 2px;        /* زوايا دائرية خفيفة */
+}
+
+/* تنسيق قسم الفلاتر */
+.filters {
+    background-color: white;   /* خلفية بيضاء */
+    padding: 20px;             /* حشوة داخلية */
+    border-radius: 10px;       /* زوايا دائرية */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    margin-bottom: 30px;       /* مسافة أسفل القسم */
+    display: grid;             /* استخدام grid للترتيب */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* أعمدة متجاوبة */
+    gap: 15px;                 /* مسافة بين العناصر */
+}
+
+.filter-group {
+    margin-bottom: 0;          /* إزالة المسافة السفلية */
+}
+
+.filter-group label {
+    display: block;            /* عرض ككتلة */
+    margin-bottom: 5px;        /* مسافة أسفل التسمية */
+    font-weight: 600;          /* خط سميك */
+    color: var(--dark);        /* لون النص غامق */
+}
+
+.filter-group select {
+    width: 100%;               /* عرض كامل */
+    padding: 10px;             /* حشوة داخلية */
+    border: 1px solid #ddd;    /* حد رمادي فاتح */
+    border-radius: 5px;        /* زوايا دائرية */
+    font-size: 1rem;           /* حجم الخط عادي */
+}
+
+/* شبكة عرض المنتجات */
+.products-grid {
+    display: grid;             /* استخدام grid للترتيب */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* أعمدة متجاوبة */
+    gap: 25px;                 /* مسافة بين البطاقات */
+    margin-bottom: 40px;       /* مسافة أسفل الشبكة */
+}
+
+/* تنسيق بطاقة المنتج */
+.product-card {
+    background-color: white;   /* خلفية بيضاء */
+    border-radius: 10px;       /* زوايا دائرية */
+    overflow: hidden;          /* إخفاء المحتوى الزائد */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    transition: transform 0.3s, box-shadow 0.3s; /* تأثيرات انتقالية */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* رفع البطاقة عند التمرير */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* ظل أقوى */
+}
+
+.product-image {
+    height: 200px;             /* ارتفاع ثابت للصورة */
+    background-color: #f1f5f9; /* خلفية رمادية فاتحة */
+    display: flex;             /* استخدام flexbox */
+    align-items: center;       /* توسيط عمودي */
+    justify-content: center;   /* توسيط أفقي */
+    overflow: hidden;          /* إخفاء الصورة الزائدة */
+}
+
+.product-image img {
+    max-width: 100%;           /* أقصى عرض 100% */
+    max-height: 100%;          /* أقصى ارتفاع 100% */
+    object-fit: contain;       /* احتواء الصورة دون تشويه */
+}
+
+.product-info {
+    padding: 20px;             /* حشوة داخلية */
+}
+
+.product-category {
+    color: var(--gray);        /* لون رمادي */
+    font-size: 0.9rem;         /* حجم خط صغير */
+    margin-bottom: 5px;        /* مسافة أسفل */
+}
+
+.product-name {
+    font-weight: 600;          /* خط سميك */
+    margin-bottom: 10px;       /* مسافة أسفل */
+    font-size: 1.1rem;         /* حجم خط متوسط */
+}
+
+.product-price {
+    font-weight: bold;         /* خط عريض */
+    color: var(--primary);     /* لون أزرق */
+    font-size: 1.2rem;         /* حجم خط كبير */
+    margin-bottom: 15px;       /* مسافة أسفل */
+}
+
+.product-features {
+    list-style: none;          /* إزالة النقاط */
+    margin-bottom: 15px;       /* مسافة أسفل */
+}
+
+.product-features li {
+    margin-bottom: 5px;        /* مسافة بين العناصر */
+    font-size: 0.9rem;         /* حجم خط صغير */
+    color: var(--gray);        /* لون رمادي */
+}
+
+/* قسم ملخص الطلب */
+.cart-summary {
+    background-color: white;   /* خلفية بيضاء */
+    padding: 25px;             /* حشوة داخلية */
+    border-radius: 10px;       /* زوايا دائرية */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    margin-top: 30px;          /* مسافة فوق */
+    position: sticky;          /* تثبيت القسم */
+    top: 20px;                 /* مسافة من الأعلى */
+}
+
+.cart-items {
+    margin-bottom: 20px;       /* مسافة أسفل */
+    max-height: 300px;         /* أقصى ارتفاع */
+    overflow-y: auto;          /* إمكانية التمرير رأسيًا */
+}
+
+.cart-item {
+    display: flex;             /* استخدام flexbox */
+    justify-content: space-between; /* توزيع العناصر */
+    padding: 10px 0;           /* حشوة عمودية */
+    border-bottom: 1px solid #eee; /* خط فاصل */
+}
+
+.cart-total {
+    font-weight: bold;         /* خط عريض */
+    font-size: 1.3rem;         /* حجم خط كبير */
+    text-align: center;        /* توسيط النص */
+    margin: 20px 0;            /* مسافة فوق وتحت */
+    color: var(--primary);     /* لون أزرق */
+}
+
+/* قسم العروض والخصومات */
+.discount-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); /* خلفية متدرجة */
+    color: white;              /* لون النص أبيض */
+    padding: 30px;             /* حشوة داخلية */
+    border-radius: 10px;       /* زوايا دائرية */
+    text-align: center;        /* توسيط النص */
+    margin: 40px 0;            /* مسافة فوق وتحت */
+}
+
+.discount-section h2 {
+    margin-bottom: 15px;       /* مسافة أسفل العنوان */
+}
+
+.discount-code {
+    background-color: rgba(255, 255, 255, 0.2); /* خلفية شبه شفافة */
+    padding: 10px 20px;        /* حشوة داخلية */
+    border-radius: 5px;        /* زوايا دائرية */
+    display: inline-block;     /* عرض ككتلة مضمنة */
+    margin: 15px 0;            /* مسافة فوق وتحت */
+    font-weight: bold;         /* خط عريض */
+    font-size: 1.2rem;         /* حجم خط كبير */
+}
+
+/* أقسام من نحن واتصل بنا */
+.about-section, .contact-section {
+    background-color: white;   /* خلفية بيضاء */
+    padding: 30px;             /* حشوة داخلية */
+    border-radius: 10px;       /* زوايا دائرية */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    margin-bottom: 30px;       /* مسافة أسفل */
+}
+
+.contact-info {
+    display: grid;             /* استخدام grid للترتيب */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* أعمدة متجاوبة */
+    gap: 20px;                 /* مسافة بين العناصر */
+    margin-top: 20px;          /* مسافة فوق */
+}
+
+.contact-item {
+    display: flex;             /* استخدام flexbox */
+    align-items: center;       /* توسيط عمودي */
+    gap: 10px;                 /* مسافة بين العناصر */
+}
+
+.contact-icon {
+    background-color: var(--primary); /* خلفية زرقاء */
+    color: white;              /* لون النص أبيض */
+    width: 40px;               /* عرض ثابت */
+    height: 40px;              /* ارتفاع ثابت */
+    border-radius: 50%;        /* شكل دائري */
+    display: flex;             /* استخدام flexbox */
+    align-items: center;       /* توسيط عمودي */
+    justify-content: center;   /* توسيط أفقي */
+    font-size: 1.2rem;         /* حجم خط كبير */
+}
+
+/* تنسيق الفوتر (الجزء السفلي) */
+footer {
+    background-color: var(--dark); /* خلفية غامقة */
+    color: white;              /* لون النص أبيض */
+    padding: 2rem 1rem;        /* حشوة داخلية */
+    margin-top: 50px;          /* مسافة فوق */
+}
+
+.footer-content {
+    max-width: 1200px;         /* أقصى عرض */
+    margin: 0 auto;            /* توسيط المحتوى */
+    display: grid;             /* استخدام grid للترتيب */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* أعمدة متجاوبة */
+    gap: 30px;                 /* مسافة بين الأقسام */
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;       /* مسافة أسفل العنوان */
+    color: var(--accent);      /* لون برتقالي */
+}
+
+.footer-section ul {
+    list-style: none;          /* إزالة النقاط */
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;        /* مسافة بين العناصر */
+}
+
+.footer-section a {
+    color: #d1d5db;            /* لون رمادي فاتح */
+    text-decoration: none;     /* إزالة الخط من تحت الروابط */
+    transition: color 0.3s;    /* تأثير انتقالي للون */
+}
+
+.footer-section a:hover {
+    color: white;              /* لون أبيض عند التمرير */
+}
+
+.copyright {
+    text-align: center;        /* توسيط النص */
+    margin-top: 30px;          /* مسافة فوق */
+    padding-top: 20px;         /* حشوة فوق */
+    border-top: 1px solid #374151; /* خط علوي فاصل */
+    color: #9ca3af;            /* لون رمادي */
+}
+
+/* كلاس لإخفاء العناصر */
+.hidden {
+    display: none;             /* إخفاء العنصر */
+}
+
+/* تنسيق الإشعارات */
+.notification {
+    position: fixed;          
+    bottom: 20px;              /* مسافة من الأسفل */
+    right: 20px;               /* مسافة من اليمين */
+    background-color: var(--primary); /* خلفية زرقاء */
+    color: white;              /* لون النص أبيض */
+    padding: 15px 25px;        /* حشوة داخلية */
+    border-radius: 5px;        /* زوايا دائرية */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* ظل */
+    z-index: 1000;             /* ترتيب الطبقات */
+    transition: transform 0.3s, opacity 0.3s; /* تأثيرات انتقالية */
+}
+
+/* تنسيق النوافذ المنبثقة */
+.modal {
+    position: fixed;           
+    top: 0;                    /* بداية من الأعلى */
+    left: 0;                   /* بداية من اليسار */
+    width: 100%;               /* عرض كامل */
+    height: 100%;              /* ارتفاع كامل */
+    background-color: rgba(0, 0, 0, 0.5); /* خلفية شبه شفافة */
+    display: flex;             /* استخدام flexbox */
+    align-items: center;       /* توسيط عمودي */
+    justify-content: center;   /* توسيط أفقي */
+    z-index: 2000;             /* ترتيب طبقات عالي */
+    opacity: 0;                /* شفافية كاملة (مخفي) */
+    visibility: hidden;        /* إخفاء العنصر */
+    transition: opacity 0.3s, visibility 0.3s; /* تأثيرات انتقالية */
+}
+
+.modal.active {
+    opacity: 1;                /* شفافية كاملة (ظاهر) */
+    visibility: visible;       /* إظهار العنصر */
+}
+
+.modal-content {
+    background-color: white;   /* خلفية بيضاء */
+    padding: 30px;             /* حشوة داخلية */
+    border-radius: 10px;       /* زوايا دائرية */
+    width: 90%;                /* عرض 90% */
+    max-width: 500px;          /* أقصى عرض */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* ظل قوي */
+    transform: translateY(-20px); /* تحريك لأعلى */
+    transition: transform 0.3s; /* تأثير انتقالي */
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);  /* إعادةإلى الطبيعي */
+}
+
+.modal-header {
+    display: flex;             /* استخدام flexbox */
+    justify-content: space-between; /* توزيع العناصر */
+    align-items: center;       /* توسيط عمودي */
+    margin-bottom: 20px;       /* مسافة أسفل */
+}
+
+.modal-title {
+    font-size: 1.5rem;         /* حجم خط كبير */
+    color: var(--dark);        /* لون غامق */
+}
+
+.close-btn {
+    background: none;          /* بدون خلفية */
+    border: none;              /* بدون حدود */
+    font-size: 1.5rem;         /* حجم خط كبير */
+    cursor: pointer;           /* شكل المؤشر يد */
+    color: var(--gray);        /* لون رمادي */
+}
+
+/* زر واتساب */
+.whatsapp-btn {
+    background-color: #25D366; /* لون واتساب الأخضر */
+    color: white;              /* لون النص أبيض */
+    display: flex;             /* استخدام flexbox */
+    align-items: center;       /* توسيط عمودي */
+    justify-content: center;   /* توسيط أفقي */
+    gap: 10px;                 /* مسافة بين العناصر */
+    padding: 12px 20px;        /* حشوة داخلية */
+    border-radius: 5px;        /* زوايا دائرية */
+    text-decoration: none;     /* إزالة الخط من تحت النص */
+    font-weight: bold;         /* خط عريض */
+    margin-top: 10px;          /* مسافة فوق */
+    transition: background-color 0.3s; /* تأثير انتقالي */
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E; /* لون أغمق عند التمرير */
+}
+
+/* تنسيقات للهواتف المحمولة */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column; /* ترتيب العناصر عموديًا */
+        text-align: center;     /* توسيط النص */
+    }
+    
+    nav ul {
+        margin-top: 15px;       /* مسافة فوق القائمة */
+        justify-content: center; /* توسيط القائمة */
+    }
+    
+    .hero h1 {
+        font-size: 2rem;        /* تصغير حجم العنوان */
+    }
+    
+    .filters {
+        grid-template-columns: 1fr; /* عمود واحد للفلاتر */
+    }
+}
+
+/* تثبيت الهيدر */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* تنسيق زر الحذف */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.cart-item:hover {
+    background-color: #f9fafb;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-radius: 5px;
+}
+
+.cart-item button {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #fee2e2;
+    transform: scale(1.1);
+}
+
+/* تحسين تنسيق السلة الفارغة */
+.cart-items:empty::before {
+    content: "السلة فارغة";
+    display: block;
+    text-align: center;
+    color: var(--gray);
+    padding: 30px;
+    font-style: italic;
+}
+
+/* تحسين التمرير في السلة */
+.cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.cart-items::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* تنسيقات قسم معلومات المستخدم في نافذة التأكيد */
+.user-info-section {
+    background: var(--light);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #e5e7eb;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: white;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-group input[type="checkbox"] {
+    margin-left: 10px;
+    transform: scale(1.2);
+}
+
+/* تحسين التجاوبية */
+@media (max-width: 768px) {
+    .user-info-section {
+        padding: 15px;
+    }
+    
+    .form-input, .form-textarea {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+}
