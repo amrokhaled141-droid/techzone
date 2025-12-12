@@ -712,6 +712,23 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 </script>
-
+<script>
+// عرض المنتجات فور تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    // تأخير بسيط لضمان تحميل جميع الملفات
+    setTimeout(function() {
+        if (typeof displayProducts === 'function') {
+            displayProducts();
+        } else {
+            // إذا لم تكن الدالة متاحة بعد، نعيد المحاولة
+            setTimeout(function() {
+                if (typeof displayProducts === 'function') {
+                    displayProducts();
+                }
+            }, 500);
+        }
+    }, 100);
+});
+</script>
 </body>
 </html>
